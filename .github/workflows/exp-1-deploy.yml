@@ -1,5 +1,5 @@
 # Workflow for deploying to production environment
-name: Deploy Experiment 1 to Production
+name: Deploy Experiment 1 to Pages
 
 on:
   # Runs on pushes targeting the main branch
