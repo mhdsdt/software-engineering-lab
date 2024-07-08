@@ -1,10 +1,10 @@
-# Workflow for deploying to production environment
-name: Deploy Experiment 1 to Production
+# Workflow for deploying to staging environment
+name: Deploy Experiment 1 to Staging
 
 on:
-  # Runs on pushes targeting the main branch
+  # Runs on pushes targeting the develop branch
   push:
-    branches: ['main']
+    branches: ['develop']
     paths:
       - 'experiment-1-git/**'
 
@@ -23,7 +23,7 @@ concurrency:
 jobs:
   deploy:
     environment:
-      name: github-pages
+      name: github-pages-staging
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
@@ -43,8 +43,8 @@ jobs:
         run: pnpm install
         working-directory: ./experiment-1-git
 
-      - name: Set DEPLOY_ENV to production
-        run: echo "DEPLOY_ENV=production" >> $GITHUB_ENV
+      - name: Set DEPLOY_ENV to staging
+        run: echo "DEPLOY_ENV=staging" >> $GITHUB_ENV
 
       - name: Build
         run: pnpm run build
