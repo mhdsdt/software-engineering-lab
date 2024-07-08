@@ -39,10 +39,10 @@ jobs:
           
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
-        working-directory: ./experiment-1-git
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
+          cache-dependency-path: './experiment-1-git/pnpm-lock.yaml'
 
       - name: Install dependencies
         run: pnpm install
