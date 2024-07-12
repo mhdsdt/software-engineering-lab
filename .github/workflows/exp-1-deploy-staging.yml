@@ -61,7 +61,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './experiment-1-git/dist/stg-exp-1'
+          path: './experiment-1-git/dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
