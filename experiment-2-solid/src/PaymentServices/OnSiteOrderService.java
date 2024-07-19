@@ -12,6 +12,11 @@ public class OnSiteOrderService implements OrderService {
     }
 
     @Override
+    public void phoneOrderRegister(String customerName) {
+        //Empty Body
+    }
+
+    @Override
     public void onSiteOrderPayment(int foodPrice) {
         System.out.println("on-Site Payment with Price : " + foodPrice + " Tomans!");
     }
@@ -19,5 +24,10 @@ public class OnSiteOrderService implements OrderService {
     @Override
     public void onlineOrderPayment(int foodPrice) {
         //Empty Body!
+    }
+
+    @Override
+    public void phoneOrderPayment(int foodPrice) {
+        //Empty Body
     }
 }
