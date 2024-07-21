@@ -1,33 +1,13 @@
 package PaymentServices;
 
-public class PhoneOrderService implements OrderService {
+public class PhoneOrderService implements OrderRegistrationService, OrderPaymentService {
     @Override
-    public void onSiteOrderRegister(String customerName) {
-        // Empty Body
-    }
-
-    @Override
-    public void onlineOrderRegister(String customerName) {
-        // Empty Body
-    }
-
-    @Override
-    public void phoneOrderRegister(String customerName) {
+    public void registerOrder(String customerName) {
         System.out.println("Phone order registered for " + customerName);
     }
 
     @Override
-    public void onSiteOrderPayment(int foodPrice) {
-        // Empty Body
-    }
-
-    @Override
-    public void onlineOrderPayment(int foodPrice) {
-        // Empty Body
-    }
-
-    @Override
-    public void phoneOrderPayment(int foodPrice) {
+    public void payOrder(int foodPrice) {
         System.out.println("Phone Payment with Price: " + foodPrice + " Tomans!");
     }
 }
