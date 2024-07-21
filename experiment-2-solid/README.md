@@ -216,46 +216,58 @@
 </tr>
 <tr>
 <td width="168">
-<p>&nbsp;</p>
+<p>Single Responsibility Principle (SRP)</p>
 </td>
 <td width="246">
-<p>&nbsp;</p>
+<p>کلاس Order دارای مسئولیت‌های مختلفی است.</p>
 </td>
 <td width="284">
-<p>&nbsp;</p>
+<p>ایجاد کلاس OrderPrinter برای مسئولیت نمایش اطلاعات سفارش و جدا کردن محاسبه قیمت کل از کلاس Order.</p>
 </td>
 </tr>
 <tr>
 <td width="168">
-<p>&nbsp;</p>
+<p>Open-Close Principle (OCP)</p>
 </td>
 <td width="246">
-<p>&nbsp;</p>
+<p>کلاس Main برای افزودن روش‌های جدید پرداخت و سفارش نیاز به تغییر دارد.</p>
 </td>
 <td width="284">
-<p>&nbsp;</p>
+<p>استفاده از واسط‌های جداگانه برای هر روش پرداخت و سفارش و پیاده‌سازی کلاس‌های مربوطه که از این واسط‌ها استفاده می‌کنند.</p>
 </td>
 </tr>
 <tr>
 <td width="168">
-<p>&nbsp;</p>
+<p>Liskov Substitution Principle (LSP)</p>
 </td>
 <td width="246">
-<p>&nbsp;</p>
+<p>پیاده‌سازی نامناسب واسط‌ها ممکن است نیاز به تغییر در کلاس Main داشته باشد.</p>
 </td>
 <td width="284">
-<p>&nbsp;</p>
+<p>اطمینان از پیاده‌سازی صحیح واسط‌ها به طوری که کلاس‌های پیاده‌سازی بدون نیاز به تغییر در کلاس Main قابل استفاده باشند.</p>
 </td>
 </tr>
 <tr>
 <td width="168">
-<p>&nbsp;</p>
+<p>Interface Segregation Principle (ISP)</p>
 </td>
 <td width="246">
-<p>&nbsp;</p>
+<p>واسط OrderService شامل تمامی روش‌های پرداخت و سفارش است که باعث پیچیدگی و عدم استفاده مناسب می‌شود.</p>
 </td>
 <td width="284">
-<p>&nbsp;</p>
+<p>استفاده از واسط‌های جداگانه برای هر روش پرداخت و ثبت سفارش، مثلاً OrderRegistrationService و OrderPaymentService.</p>
+</td>
+</tr>
+<tr>
+<td width="168">
+<p>Dependency Inversion Principle (DIP)</p>
+</td>
+<td width="246">
+<p>وابستگی مستقیم کلاس Main به کلاس‌های پیاده‌سازی خاص برای پرداخت و ثبت سفارش.</p>
+</td>
+<td width="284">
+<p>استفاده از واسط‌ها برای کاهش وابستگی مستقیم به کلاس‌های پیاده‌سازی خاص و تزریق وابستگی‌ها به کلاس Main.
+گام ۳: اصلاح موارد نقض</p>
 </td>
 </tr>
 </tbody>
