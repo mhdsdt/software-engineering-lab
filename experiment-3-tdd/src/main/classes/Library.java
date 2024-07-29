@@ -28,8 +28,8 @@ public class Library {
      * @return        Returns true if the operation is successful and false otherwise.
      */
     public boolean lendBook(Book book, Student student) {
-        if (!this.books.contains(book)) {
-            System.out.println("!! Book " + book.getTitle() + " not registered.");
+        if (!this.books.contains(book) || !this.students.contains(student)) {
+            System.out.println("!! Book " + book.getTitle() + " not registered or student not registered.");
             return false;
         }
         if (student.hasBook(book)) {
@@ -52,18 +52,14 @@ public class Library {
      * @return Returns true if the operation is successful and false otherwise.
      */
     public boolean returnBook(Book book, Student student) {
-        if (!this.students.contains(student)) {
-            System.out.println("!! Student " + student.getName() + " not registered.");
+        if (!this.students.contains(student) || !student.hasBook(book)) {
+            System.out.println("!! Student " + student.getName() + " not registered or doesn't have the book.");
             return false;
         }
-        if (student.hasBook(book)) {
-            this.books.add(book);
-            System.out.println(student.getName() + " returned " + book.getTitle() + ".");
-            return true;
-        }
-
-        System.out.println("!! " + student.getName() + " doesn't have the book.");
-        return false;
+        this.books.add(book);
+        student.removeBook(book);
+        System.out.println(student.getName() + " returned " + book.getTitle() + ".");
+        return true;
     }
 
     /**
