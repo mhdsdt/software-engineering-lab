@@ -28,12 +28,16 @@ public class Library {
      * @return Returns true if the operation is successful and false otherwise.
      */
     public boolean lendBook(Book book, Student student) {
-        if (!this.books.contains(book) || !this.students.contains(student)) {
-            System.out.println("!! Book " + book.getTitle() + " not registered or student not registered.");
+        if (!this.students.contains(student)) {
+            System.out.println("!! Student not registered.");
             return false;
         }
         if (student.hasBook(book)) {
             System.out.println("!! Student already has the book.");
+            return false;
+        }
+        if (!this.books.contains(book)) {
+            System.out.println("!! Book " + book.getTitle() + " not registered.");
             return false;
         }
 
@@ -42,6 +46,7 @@ public class Library {
         System.out.println(book.getTitle() + " lent to " + student.getName() + ".");
         return true;
     }
+
 
     /**
      * The student returns the book to the library. Removes the book from the student's list and adds it to the library.
