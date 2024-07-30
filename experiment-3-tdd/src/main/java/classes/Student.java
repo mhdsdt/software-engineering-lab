@@ -1,4 +1,4 @@
-package main.classes;
+package classes;
 
 import java.util.ArrayList;
 
@@ -15,6 +15,10 @@ public class Student {
 
     public String getName() {
         return name;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public boolean hasBook(Book book) {

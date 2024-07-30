@@ -1,6 +1,5 @@
-package test.classes;
+package classes;
 
-import main.classes.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,16 +10,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class LibraryTest {
     private Library library;
-    private Book book1, book2;
-    private Student student1, student2;
 
     @BeforeEach
     public void setUp() {
         library = new Library();
-        book1 = new Book("1", "Book One", "Author One");
-        book2 = new Book("2", "Book Two", "Author Two");
-        student1 = new Student("1", "Student One");
-        student2 = new Student("2", "Student Two");
+        Book book1 = new Book("Book One", "Author One", 1);
+        Book book2 = new Book("Book Two", "Author Two", 2);
+        Student student1 = new Student("Student One", 1);
+        Student student2 = new Student("Student Two", 2);
 
         library.addBook(book1);
         library.addBook(book2);
@@ -52,7 +49,7 @@ public class LibraryTest {
     @Test
     public void testSearchStudentsById() {
         ArrayList<Object> keys = new ArrayList<>();
-        keys.add("1");
+        keys.add(1);
         ArrayList<Student> result = library.searchStudents(SearchByType.ID, keys);
         assertNotNull(result);
         assertEquals(1, result.size());
@@ -72,7 +69,7 @@ public class LibraryTest {
     @Test
     public void testSearchBooksById() {
         ArrayList<Object> keys = new ArrayList<>();
-        keys.add("1");
+        keys.add(1);
         ArrayList<Book> result = library.searchBooks(SearchByType.ID, keys);
         assertNotNull(result);
         assertEquals(1, result.size());

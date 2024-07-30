@@ -1,4 +1,4 @@
-package main.classes;
+package classes;
 
 public class Book {
     private int id;
@@ -9,6 +9,10 @@ public class Book {
         this.id = id;
         this.title = title;
         this.author = author;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getTitle() {

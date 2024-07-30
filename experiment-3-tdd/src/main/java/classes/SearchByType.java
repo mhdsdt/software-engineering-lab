@@ -1,4 +1,4 @@
-package main.classes;
+package classes;
 
 public enum SearchByType {
     ID,

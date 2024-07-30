@@ -1,4 +1,4 @@
-package main.classes;
+package classes;
 
 import java.util.ArrayList;
 
@@ -25,7 +25,7 @@ public class Library {
      *
      * @param book    The book to be lent.
      * @param student The student who is going to borrow the book.
-     * @return        Returns true if the operation is successful and false otherwise.
+     * @return Returns true if the operation is successful and false otherwise.
      */
     public boolean lendBook(Book book, Student student) {
         if (!this.books.contains(book) || !this.students.contains(student)) {
@@ -68,14 +68,16 @@ public class Library {
      *
      * @param searchByType Specifies the field used for searching (id, name).
      * @param keys         The list of keys to search for.
-     * @return             The list of students that match the search criteria. Returns null if search type is title or author.
+     * @return The list of students that match the search criteria. Returns null if search type is title or author.
      */
     public ArrayList<Student> searchStudents(SearchByType searchByType, ArrayList<Object> keys) {
         ArrayList<Student> result = new ArrayList<>();
         for (Student student : students) {
             for (Object key : keys) {
-                if (searchByType == SearchByType.ID && student.getId().equals(key)) {
-                    result.add(student);
+                if (searchByType == SearchByType.ID) {
+                    if (key instanceof Integer && (int) key == student.getId()) {
+                        result.add(student);
+                    }
                 } else if (searchByType == SearchByType.NAME && student.getName().equals(key)) {
                     result.add(student);
                 }
@@ -90,14 +92,16 @@ public class Library {
      *
      * @param searchByType Specifies the field used for searching (id, title, or author).
      * @param keys         The list of keys to search for.
-     * @return             The list of books that match the search criteria. Returns null if search type is name.
+     * @return The list of books that match the search criteria. Returns null if search type is name.
      */
     public ArrayList<Book> searchBooks(SearchByType searchByType, ArrayList<Object> keys) {
         ArrayList<Book> result = new ArrayList<>();
         for (Book book : books) {
             for (Object key : keys) {
-                if (searchByType == SearchByType.ID && book.getId().equals(key)) {
-                    result.add(book);
+                if (searchByType == SearchByType.ID) {
+                    if (key instanceof Integer && (int) key == book.getId()) {
+                        result.add(book);
+                    }
                 } else if (searchByType == SearchByType.TITLE && book.getTitle().equals(key)) {
                     result.add(book);
                 } else if (searchByType == SearchByType.AUTHOR && book.getAuthor().equals(key)) {
