@@ -43,8 +43,15 @@ public class LibraryTest {
 
     @Test
     public void testLendBookStudentAlreadyHas() {
-        library.lendBook(book1, student1);
-        assertFalse(library.lendBook(book1, student1));
+        library.lendBook(book1, student1); // First lending
+        student1.displayBooks();
+        assertFalse(library.lendBook(book1, student1)); // Second lending attempt should fail
+    }
+
+    @Test
+    public void testLendUnregisteredBook() {
+        Book unregisteredBook = new Book("Unregistered Book", "Unknown Author", 99);
+        assertFalse(library.lendBook(unregisteredBook, student1));
     }
 
     @Test
