@@ -22,11 +22,11 @@ public class JavaCup {
         else { System.out.println("NO"); }
     }
     public static void temp() {
-        ArrayDeque<Integer> a = new ArrayDeque<>(200000000);
-        for (int i = 0; i < 10000; i++)
-        {
+        int[] a = new int[200000000];
+        int index = 0;
+        for (int i = 0; i < 10000; i++) {
             for (int j = 0; j < 20000; j++) {
-                a.add(i + j);
+                a[index++] = i + j;
             }
         }
     }
