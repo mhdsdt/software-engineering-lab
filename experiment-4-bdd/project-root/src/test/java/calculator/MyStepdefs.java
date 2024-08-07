@@ -32,4 +32,9 @@ public class MyStepdefs {
     public void iExpectTheResult(int arg0) {
         Assert.assertEquals(arg0, result);
     }
+
+    @Then("^I expect the result NaN$")
+    public void iExpectTheResultNaN() {
+        Assert.assertTrue(Double.isNaN(result));
+    }
 }
