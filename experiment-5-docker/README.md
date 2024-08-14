@@ -305,11 +305,47 @@ backend-1  |
 
 # ارسال درخواست به وب‌سرور
 
+## سوال 1
 
+'''
+curl -X POST http://localhost:8000/users/register/ \
+-H "Content-Type: application/json" \
+-d '{"username": "user1", "password": "1234"}'
+'''
 
+## سوال 2  
+'''
+curl -X POST http://localhost:8000/users/login/ \
+-H "Content-Type: application/json" \
+-d '{"username": "user1", "password": "1234"}'
 
+'''
 
+## سوال 3  
+'''
+curl -X POST http://localhost:8000/notes/create/ \
+-H "Content-Type: application/json" \
+-H "Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+" \
+-d '{"title": "title1", "body": "body1"}'
 
+'''
+
+## سوال 4  
+'''
+curl -X POST http://localhost:8000/notes/create/ \
+-H "Content-Type: application/json" \
+-H "Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+" \
+-d '{"title": "title2", "body": "body2"}'
+
+'''
+## سوال 5  
+'''
+curl -X GET http://localhost:8000/notes/ \
+-H "Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+"
+'''
 
 # تعامل با داکر
 برای دستیابی به container ها و image ها دستورات زیر را اجرا کرده و خروجی های زیر را میگیریم:
