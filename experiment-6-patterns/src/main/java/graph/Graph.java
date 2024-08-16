@@ -1,6 +1,7 @@
 package graph;
 
 import lombok.Getter;
+import org.javatuples.Pair;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -8,9 +9,9 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.stream.Collectors;
 
+@Getter
 public class Graph {
-    @Getter
-    private ArrayList<Node> graph;
+    private final ArrayList<Node> graph;
 
     public Graph(ArrayList<Node> graph) {
         this.graph = graph;
@@ -25,7 +26,7 @@ public class Graph {
         this.resetVisits();
 
         Queue<Pair<Node, Integer>> nodes = new LinkedList<>();
-        nodes.add(new Pair<Node, Integer>(s, 0));
+        nodes.add(new Pair<>(s, 0));
         while (!nodes.isEmpty()) {
             Pair<Node, Integer> front = nodes.poll();
             Node frontNode = front.getValue0();
@@ -37,6 +38,23 @@ public class Graph {
                         .stream()
                         .map(neighbor -> new Pair<Node, Integer>(neighbor, distance + 1))
                         .collect(Collectors.toCollection(ArrayList::new)));
+            }
+        }
+    }
+
+    public void bfsSkippingDislikedCity(Node start, Node dislikedCity) {
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(start);
+        start.setVisited(true);
+
+        while (!queue.isEmpty()) {
+            Node current = queue.poll();
+            for (Node neighbor : current.getAvailableNeighbors()) {
+                if (!neighbor.isVisited() && neighbor != dislikedCity) {
+                    neighbor.setVisited(true);
+                    neighbor.setDistance(current.getDistance() + 1);
+                    queue.add(neighbor);
+                }
             }
         }
     }
