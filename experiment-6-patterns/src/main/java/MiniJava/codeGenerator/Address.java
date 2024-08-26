@@ -32,4 +32,15 @@ public class Address {
         }
         return num + "";
     }
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        if (num < 0) {
+            throw new IllegalArgumentException("Number must be non-negative");
+        }
+        this.num = num;
+    }
 }
