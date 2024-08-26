@@ -7,6 +7,18 @@ import MiniJava.strategy.SubtractStrategy;
 public class CodeGenerator {
     private OperationStrategy strategy;
 
+    public void generateCode(Operation op, Address s1, Address s2, Address temp) {
+        switch (op) {
+            case ADD:
+                setStrategy(new AddStrategy());
+                break;
+            case SUB:
+                setStrategy(new SubtractStrategy());
+                break;
+        }
+        strategy.execute(s1, s2, temp);
+    }
+
     public void setStrategy(OperationStrategy strategy) {
         this.strategy = strategy;
     }
