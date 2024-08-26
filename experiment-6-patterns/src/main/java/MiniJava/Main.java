@@ -1,20 +1,14 @@
 package MiniJava;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
-import MiniJava.errorHandler.ErrorHandler;
-import MiniJava.parser.Parser;
-
+import MiniJava.facade.MiniJavaFacade;
 
 public class Main {
     public static void main(String[] args) {
-        Parser parser = new Parser();
-        try {
-            // start parsing
-            parser.startParse(new Scanner(new File("src/main/resources/code")));
-        } catch (FileNotFoundException e) {
-            ErrorHandler.printError(e.getMessage());
+        if (args.length == 0) {
+            System.out.println("Usage: java Main <source-file>");
+            return;
         }
+        MiniJavaFacade facade = new MiniJavaFacade();
+        facade.initiate(args[0]);
     }
 }
