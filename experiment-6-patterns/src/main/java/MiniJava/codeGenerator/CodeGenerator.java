@@ -19,4 +19,16 @@ public class CodeGenerator {
         }
         strategy.execute(s1, s2, temp);
     }
+
+    public void generateArithmeticCode(Operation op, Address s1, Address s2, Address temp) {
+        switch (op) {
+            case ADD:
+                setStrategy(new AddStrategy());
+                break;
+            case SUB:
+                setStrategy(new SubtractStrategy());
+                break;
+        }
+        strategy.execute(s1, s2, temp);
+    }
 }
